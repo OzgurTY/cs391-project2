@@ -14,9 +14,9 @@ export default function Rightbar({ user }) {
   const {user: currentUser, dispatch} = useContext(AuthContext);
   const [followed, setFollowed] = useState(currentUser.followings.includes(user?.id));
 
-  // useEffect(() => {
-  //   setFollowed(currentUser.followings.includes(user?.id));
-  // }, [currentUser, user?.id]);
+//  useEffect(() => {
+//    setFollowed(currentUser.followings.includes(user?.id));
+//  }, [currentUser, user?.id]);
 
   useEffect(() => {
     const getFriends = async () => {
@@ -101,7 +101,7 @@ export default function Rightbar({ user }) {
               <span className="rightbarFollowingName">{friend.username}</span>
               </div>
             </Link>
-          ))};
+          ))}
         </div>
       </>
     )

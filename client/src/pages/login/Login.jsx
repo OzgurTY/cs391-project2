@@ -3,6 +3,7 @@ import "./login.css";
 import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const email = useRef();
@@ -32,7 +33,10 @@ export default function Login() {
                     <input placeholder="Password" required minLength="8" type="password" className="loginInput" ref={password} />
                     <button className="loginButton" type="submit" disabled={isFetching}>{isFetching ? <CircularProgress color="white" size="15px" /> : "Login"}</button>
                     <span className="loginForgot">Forgot Password?</span>
-                    <button className="loginRegisterButton">{isFetching ? <CircularProgress color="white" size="15px" /> : "Create Account"}</button>
+                    <Link to="/register" style={ {textDecoration: "none" }}>
+                        <span className="registerLabel">Don't you have an account? Create here.</span>
+                    </Link>
+                    {/* <button className="loginRegisterButton">{isFetching ? <CircularProgress color="white" size="15px" /> : "Create Account"}</button> */}
                 </form>
             </div>
         </div>

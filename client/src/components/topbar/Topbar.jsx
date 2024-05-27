@@ -1,13 +1,42 @@
 import "./topbar.css"
 import { Search, Person, Chat, Notifications } from "@material-ui/icons"
-import { useContext } from "react"
-import { Link } from "react-router-dom"
+import { useContext, useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/AuthContext"
+import axios from "axios"
 
 export default function Topbar() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const {user} = useContext(AuthContext);
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearchSubmit = async (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      try {
+        const res = await axios.get(`/users/?username=${searchQuery}`);
+        if (res.data) {
+          navigate(`/profile/${searchQuery}`);
+        } else {
+          setError(`No profile found with the username "${searchQuery}"`);
+        }
+      } catch (err) {
+        setError(`No profile found with the username "${searchQuery}"`);
+      }
+    }
+  };
+
+  const closeError = () => {
+    setError("");
+  };
 
   return (
     <div className="topbarContainer">
@@ -17,15 +46,19 @@ export default function Topbar() {
           </Link>
         </div>
         <div className="topbarCenter">
-          <div className="searchbar">
+          <form className="searchbar" onSubmit={handleSearchSubmit} >
             <Search className="searchIcon" />
-            <input placeholder="Search for anything..." className="searchInput" />
-          </div>
+            <input placeholder="Search for anything..." className="searchInput" value={searchQuery} onChange={handleSearch} />
+          </form>
         </div>
         <div className="topbarRight">
           <div className="topbarLinks">
+          <Link to="/" style={ {textDecoration: "none", color: "white" }}>
             <span className="topbarLink">Homepage</span>
+          </Link>
+          <Link to={`/profile/${user.username}`} style={ {textDecoration: "none", color: "white" }}>
             <span className="topbarLink">Timeline</span>
+          </Link>
           </div>
           <div className="topbarIcons">
             <div className="topbarIconItem">
