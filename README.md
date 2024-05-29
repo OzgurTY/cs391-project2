@@ -21,7 +21,7 @@ Interacting with a Post:
 
 
 Visiting the Sign-Up Page:
-![alt text](image.png)
+![alt text](<image (4)-2.png>)
 -A new visitor clicks on the "Sign Up" button and is directed to the sign-up form.
 
 Entering Details:
