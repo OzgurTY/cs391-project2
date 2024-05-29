@@ -1,6 +1,6 @@
 
 .rightbar {
-    flex: 3.5;
+    flex: 1.5;
 }
 
 .rightbarContainer {
@@ -99,9 +99,32 @@
     border-radius: 5px;
 }
 
+.rightbarUserInfoFriends {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rightbarInfo,
+.rightbarFollowings {
+    width: 20%; 
+    margin: 0 50px;
+}
+
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
     .rightbar {
-        display: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex: 0.3;
+    }
+
+    .rightbarUserInfoFriends {
+        flex-direction: column;
+    }
+
+    .rightbarInfo,
+    .rightbarFollowings {
+        width: 40%;
     }
 }

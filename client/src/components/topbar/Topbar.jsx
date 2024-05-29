@@ -1,5 +1,5 @@
 import "./topbar.css";
-import { Search, Person, Chat, Notifications, Menu } from "@material-ui/icons";
+import { Search, Person, Chat, Notifications, Menu, ExitToApp } from "@material-ui/icons";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -7,7 +7,7 @@ import axios from "axios";
 
 export default function Topbar() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-  const { user } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -41,6 +41,12 @@ export default function Topbar() {
     setMenuOpen(!menuOpen);
   };
 
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    sessionStorage.removeItem("user");
+    window.location.reload();
+  };
+
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
@@ -72,7 +78,7 @@ export default function Topbar() {
           </Link>
         </div>
         <div className={`topbarIcons ${menuOpen ? "active" : ""}`}>
-          <form className="searchbar mobileSearchbar" onSubmit={handleSearchSubmit}>
+          <form className="searchbar mobileSearchbar" onSubmit={handleSearchSubmit}  >
             <Search className="searchIcon" />
             <input
               placeholder="Search for anything..."
@@ -93,6 +99,7 @@ export default function Topbar() {
             <Notifications />
             <span className="topbarIconBadge">1</span>
           </div>
+          <ExitToApp className="logoutIconMobile" onClick={handleLogout} style={{display: "none"}} />
         </div>
         <Link to={`/profile/${user.username}`}>
           <img
@@ -105,6 +112,7 @@ export default function Topbar() {
             className="topbarImg"
           />
         </Link>
+        <ExitToApp className="logoutIcon" onClick={handleLogout}  />
         <Menu className="menuIcon" onClick={toggleMenu} />
       </div>
       {error && (

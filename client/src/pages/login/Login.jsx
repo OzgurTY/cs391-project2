@@ -36,7 +36,7 @@ export default function Login() {
                     <Link to="/register" style={ {textDecoration: "none" }}>
                         <span className="registerLabel">Don't you have an account? Create here.</span>
                     </Link>
-                    {/* <button className="loginRegisterButton">{isFetching ? <CircularProgress color="white" size="15px" /> : "Create Account"}</button> */}
+          
                 </form>
             </div>
         </div>

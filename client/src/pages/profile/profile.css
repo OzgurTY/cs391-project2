@@ -48,4 +48,48 @@
 
 .profileRightBottom {
     display: flex;
+    flex-direction: column;
+}
+
+.feedWithRightbar {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedWithRightbar > .rightbar {
+    order: -1;
+    margin-bottom: 20px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .feedWithRightbar {
+        flex-direction: column;
+    }
+
+    .profileRightBottom {
+        padding: 10px;
+    }
+
+    .profileCoverImg {
+        height: 200px;
+    }
+
+    .profileUserImg {
+        width: 100px;
+        height: 100px;
+        top: 125px;
+    }
+
+    .profileInfoName {
+        font-size: 20px;
+    }
+
+    .profileInfoDesc {
+        font-size: 14px;
+    }
+
+    .feedWithRightbar > .rightbar {
+        display: none;
+    }
 }

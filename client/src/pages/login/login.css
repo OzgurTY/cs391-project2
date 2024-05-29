@@ -1,3 +1,4 @@
+/* login.css */
 .login {
     width: 100%;
     height: 100vh;
@@ -90,4 +91,88 @@
     color: white;
     font-size: 15px;
     cursor: pointer;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .loginWrapper {
+        width: 90%;
+        height: 80%;
+        flex-direction: column;
+    }
+
+    .loginLogo {
+        font-size: 2.5rem;
+    }
+
+    .loginDesc {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .loginBox {
+        width: 100%;
+        padding: 15px;
+        height: auto;
+    }
+
+    .loginInput {
+        height: 45px;
+        font-size: 14px;
+    }
+
+    .loginButton {
+        height: 45px;
+        font-size: 18px;
+    }
+
+    .loginRegisterButton {
+        width: 80%;
+        height: 45px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loginWrapper {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+    }
+
+    .loginLeft,
+    .loginRight {
+        padding: 10px;
+    }
+
+    .loginLogo {
+        font-size: 2rem;
+    }
+
+    .loginDesc {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .loginBox {
+        width: 100%;
+        padding: 10px;
+        height: auto;
+    }
+
+    .loginInput {
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .loginButton {
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .loginRegisterButton {
+        width: 100%;
+        height: 40px;
+        font-size: 12px;
+    }
 }
