@@ -12,7 +12,7 @@ Using Filters:
 -User can go to his/her own profile by clicking on profile photo symbol.
 
 Viewing a Friend's Profile:
-![alt text](profile.png)
+![alt text](profile-1.png)
 -From the search results, User clicks on a friend's profile to learn more and see their posts.
 
 Interacting with a Post:
@@ -33,7 +33,7 @@ Log-in Screen:
 
 
 Adding-removing:
-![alt text](remove.png)
+![alt text](remove-1.png)
 -A user can add or remove friend.
 
 Sharing a Memory:
