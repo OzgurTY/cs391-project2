@@ -56,3 +56,35 @@
     list-style: none;
 }
 
+.hamburger-button {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .hamburger-button {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -300px;
+        width: 300px;
+        transition: left 0.3s;
+    }
+
+    .sidebar.visible {
+        left: 0;
+    }
+}
+
+
+
+

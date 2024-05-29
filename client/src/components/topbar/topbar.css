@@ -1,16 +1,20 @@
+
 .topbarContainer {
     height: 50px;
     width: 100%;
     background-color: #5c0014;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 99999;
 }
 
 .topbarLeft {
-    flex: 3;
+    display: flex;
+    align-items: center;
+    flex: 1; 
 }
 
 .logo {
@@ -22,7 +26,9 @@
 }
 
 .topbarCenter {
-    flex: 5;
+    display: flex;
+    align-items: center;
+    flex: 2;
 }
 
 .searchbar {
@@ -32,6 +38,10 @@
     border-radius: 30px;
     display: flex;
     align-items: center;
+}
+
+.mobileSearchbar {
+    display: none;
 }
 
 .searchIcon {
@@ -49,11 +59,15 @@
 }
 
 .topbarRight {
-    flex: 4;
+    flex: 1;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-end;
     color: white;
+}
+
+.topbarLinks {
+    display: flex;
 }
 
 .topbarLink {
@@ -106,13 +120,78 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-  }
-  
-  .errorPopup button {
+}
+
+.errorPopup button {
     background: none;
     border: none;
     color: #721c24;
     font-weight: bold;
     cursor: pointer;
     margin-left: 10px;
+}
+
+/* Media queries for responsiveness */
+.menuIcon {
+  display: none;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .menuIcon {
+    display: block;
   }
+
+  .topbarLinks {
+    display: none;
+  }
+
+  .searchbar {
+    display: none;
+  }
+
+  .topbarIcons {
+    display: none;
+  }
+
+  .topbarIcons.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #5c0014;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(100% - 20px);
+  }
+
+  .topbarIconItem {
+    margin: 10px 0;
+  }
+
+  .mobileSearchbar {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .topbarImg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbarRight {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .topbarImg {
+    width: 24px;
+    height: 24px;
+  }
+}

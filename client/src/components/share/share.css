@@ -1,3 +1,4 @@
+/* share.css */
 .share {
     width: 100%;
     border-radius: 10px;
@@ -56,7 +57,7 @@
     cursor: pointer;
 }
 
-.shareBotton {
+.shareBottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -66,6 +67,7 @@
     display: flex;
     margin-left: 15px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .shareOption {
@@ -96,4 +98,71 @@
     margin-right: 20px;
     cursor: pointer;
     color: white;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .shareWrapper {
+        padding: 5px;
+    }
+
+    .shareTop {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .shareInput {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .shareBottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .shareOptions {
+        justify-content: space-around;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .shareButton {
+        width: 100%;
+        margin-top: 10px;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .shareWrapper {
+        padding: 2px;
+    }
+
+    .shareTop {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .shareInput {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .shareBottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .shareOptions {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .shareButton {
+        width: 100%;
+        margin-top: 5px;
+        margin-right: 0;
+    }
 }
